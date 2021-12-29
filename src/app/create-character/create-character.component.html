@@ -1,0 +1,30 @@
+
+<!--När man använder forms med Angular skickar man dem inte till servern, man ska alltså inte använda action="", istället hanterar vi formen med Angular.
+  ngSubmit eventbinding på form elementet förhindrar default requesten till servern via submit. Vi utför en metod, i detta fallet onSubmit() som vi definierar i ts filen.
+  #form skapar en lokal referens med värdet ngForm som är ett reserverat ord för js objektet som angular skapade för vårt formulär.
+  Vi passerar sedan värdet av form i vår onSubmit metod för att kunna skicka vidare värdet av vårt formulär i templaten till vår ts kod.-->
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+ <div class="form-group">
+  <label for="name">Character Name</label>
+  <input type="text"
+  id="name" name="name"
+  class="form-control"
+  ngModel
+  required
+  #nameCtrl="ngModel">
+  <!--Med hjälp utav en lokal referens i inputelementet (#nameCtrl som är lika med ngModel) och ngIf kan vi se om ngModel, som ger oss tillgång till vårt formulärobjekt, är invalid.
+  Om formuläret är invalid, lägger vi till vår span till DOMen-->
+  <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span>
+</div>
+
+<div class="form-group">
+  <label for="side">Choose Side</label>
+  <select name="side" id="side" class="form-control" ngModel> <!--Dropdown. Med hjälp utav ngModel kan vi informera Angular om att detta är en kontroll som den ska vara uppmärksam på-->
+    <!--Vi använder *ngFor för att loopa igenom vår array av availableSides objekt. Vi binder också value till option.value, alltså värdet av vårt option element-->
+    <option *ngFor="let option of availableSides" [value]="option.value">
+      {{ option.display }} <!--Den display vi visar användaren-->
+    </option>
+  </select>
+</div>
+<button class="btn btn-primary" type="submit" [disabled]="form.invalid">Add Character</button> <!--Om formuläret är invalid kan vi inte trycka på knappen-->
+</form>

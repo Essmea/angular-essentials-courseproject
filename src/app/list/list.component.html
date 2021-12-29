@@ -1,0 +1,8 @@
+<!--Här refererar vi till vår item komponent som inehåller information om vår karaktär. Vi använder *ngFor för att loopa igenom våra karaktärer.
+  Vi lägger till character propertien här, vilket vi kan göra då vi har gjort den bindable från utsidan med @Input i item-component.ts, och så binder vi den till char från vår *ngFor.-->
+<div class="list-group">
+  <app-item
+    *ngFor="let char of characters"
+    [character]="char">
+  </app-item>
+</div>

@@ -1,0 +1,11 @@
+<!--Mitt item som kommer synas i listan. Här använder vi text interpolation för att lista namnet på vår karaktär och sedan två knappar för Light och Dark.-->
+<a style="cursor: pointer" class="list-group-item">
+  <h4 class="list-group-item-heading">{{ character.name }}</h4>
+  <div>
+    <!--Clicklistener för att kalla på funktionen onAssign
+      som i sin tur kallar på onSideChosen i vår StarWarsService och vår character blir positionerad på den sidan vi har valt, light eller dark.-->
+    <button class="btn btn-primary" (click)="onAssign('light')">Light</button>
+    <button class="btn btn-danger" (click)="onAssign('dark')">Dark</button>
+  </div>
+</a>
+

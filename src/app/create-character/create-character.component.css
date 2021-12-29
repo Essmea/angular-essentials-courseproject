@@ -1,0 +1,12 @@
+button {
+  margin-top: 10px;
+}
+
+select {
+  cursor:pointer;
+}
+
+/*Varje inputfält som får ng-invalid och ng-touched klasserna på sig av angular, vilket innebär att användaren tryckt på fältet men inte fyllt i det*/
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

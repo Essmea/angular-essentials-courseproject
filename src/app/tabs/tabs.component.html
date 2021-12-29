@@ -1,0 +1,14 @@
+<div>
+  <ul class="nav nav-tabs">
+    <li role="presentation">
+      <a class="nav-link" routerLink="/characters/all" routerLinkActive="active">All</a> <!--Vi använder routerLink för att länka-->
+    </li>
+    <li role="presentation">
+      <a class="nav-link" routerLink="/characters/light" routerLinkActive="active">Light</a>
+    </li>
+    <li role="presentation">
+      <a class="nav-link" routerLink="/characters/dark" routerLinkActive="active">Dark</a>
+    </li>
+  </ul>
+  <router-outlet></router-outlet> <!--Här laddas tabs komponentens 'barn'-->
+</div>
